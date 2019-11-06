@@ -1,30 +1,50 @@
 using System;
+using System.Collections.Generic;
 
 class MainClass {
+ 
+ 
+
   public static void Main (string[] args) {
 
-  Estudante [] vect = new Estudante[10];
+    Produto  produto= new Produto();
 
-    Console.WriteLine ("Quantos quartos serão alugados ?");
-    int quarto = int.Parse(Console.ReadLine());
-    for ( int i = 0; i <quarto;i++){
+    Estoque estoque = new Estoque();
+    produto.AssociarEstoque(estoque);
+    
+    string opcao="1";
+    int n=0;
 
-      Console.Write("Nome ?");
-      string nome = (Console.ReadLine());
+    Console.WriteLine ("digite a data do produto:");
+    opcao = Console.ReadLine();
+ 
+    while (opcao =="1"){
 
-      Console.Write("Email ?");
-      string email = (Console.ReadLine());
+    Console.WriteLine ("digite a data do produto:");
+    opcao = Console.ReadLine();
+ 
+ 
+    if(opcao == "1"){
 
-      Console.Write("Quarto ?");
-      int quarto_P = int.Parse(Console.ReadLine());
-      vect[quarto_P] = new Estudante (nome,email);
 
+     Console.WriteLine ("digite a data do produto:");
+     string data = Console.ReadLine();
+
+     Console.WriteLine ("digite a marca do   produto:");
+     string marca = Console.ReadLine();
+
+     Console.WriteLine ("digite o tipo do produto:");
+     string tipo  = Console.ReadLine();
+
+      Produto listProduto = produto.CriarProduto(data,marca,tipo);
+
+      produto.MostrarNaLista();
     }
-
-    for ( int i = 0; i <10;i++){
-      if (vect[i]!=null){
-         Console.WriteLine (i+":"+vect[i]);
-      }
+    if(opcao == "2"){
+      break;
+    }
+  
     }
   }
+  
 }
